@@ -17,6 +17,8 @@ RUN \
   unzip alp_linux_amd64.zip && \
   install ./alp /usr/local/bin
 
+RUN rm /var/log/nginx/*
+
 COPY --from=build-dev /isubata /home/isucon/isubata
 COPY --from=build-dev /isubata/files/app/nginx_default.conf /etc/nginx/nginx.conf
 COPY isucon.conf /etc/nginx/conf.d/isucon.conf
